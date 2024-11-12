@@ -7,7 +7,8 @@ public class reverse {
 
 		int[] arr = { 1, 2, 3, 4, 5 };
 
-		System.out.println(Reverse(arr));
+		Reverse(arr);
+		System.out.println(Arrays.toString(arr));
 
 	}
 
