@@ -25,4 +25,29 @@ public class palindrome {
 		}
 		return true;
 	}
+	
+	//optimal and important palindrome
+	public static boolean checkPalindrome(String str) {
+		
+	    // WRITE YOUR CODE HERE	
+		if (str == null || str.isEmpty()) {
+            return true; // Empty or null string is trivially a palindrome
+        }
+
+        // Remove non-alphanumeric characters and convert to lowercase
+        String normalized = str.replaceAll("[^a-zA-Z0-9]", "").toLowerCase();
+
+        // Use two-pointer technique to check for palindrome
+        int left = 0, right = normalized.length() - 1;
+
+        while (left < right) {
+            if (normalized.charAt(left) != normalized.charAt(right)) {
+                return false; // Not a palindrome
+            }
+            left++;
+            right--;
+        }
+
+        return true; // Palindrome
+    }
 }
