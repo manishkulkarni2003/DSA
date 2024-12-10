@@ -52,24 +52,78 @@ public class Node {
 			}
 			return 0;
 		}
+		private static void print(Node head) {
+			while(head!=null) {
+				System.out.println(head.data+" ");
+				head=head.next;
+			}
+			System.out.println();
+		}
+		//deleting the head of the Linked List
+		static Node deleteHead(Node head) {
+			if(head ==null) return head;
+			head=head.next;
+			return head;
+		}
+		private static Node deleteTail(Node head) {
+			if(head==null ||head.next==null) return null;
+			
+			Node temp =head;
+			while(temp.next.next!=null) {
+				temp =temp.next;
+			}
+			
+			temp.next=null;
+			return head;
+			
+		}
+		static Node deleteK(Node head,int k) {
+			if(head==null) return head;
+			
+			if(k==1) {
+				head=head.next;
+				return head;
+			}
+			int count=0;
+			Node temp=head;
+			Node prev=null;
+			while(temp!=null) {
+				count++;
+				if(count==k) {
+					prev.next=prev.next.next;
+					break;
+				}
+				prev=temp;
+				temp=temp.next;
+			}
+			return head;
+		}
 	public static void main(String[] args) {
 		
 		int[] arr= {2,34,55,66};
-		Node head =convert2Arr(arr);
-		System.out.println(head.data);
+//		Node head =convert2Arr(arr);
+//		System.out.println(head.data);
 		
 		//Travsersing the LL
-		Node current =head;
-		while(current!=null) {
-			System.out.println(current.data+" ");
-			current=current.next;
-		}
-		System.out.println("Length of LL");
-		System.out.println(LengthOfLL(head));
-		System.out.println(checkIfPresent(head,66));
+//		Node current =head;
+//		head =deleteHead(head);
+//		print(head);
+////		while(current!=null) {
+//			System.out.println(current.data+" ");
+//			current=current.next;
+//		}
+//		System.out.println("Length of LL");
+//		System.out.println(LengthOfLL(head));
+//		System.out.println(checkIfPresent(head,66));
+		Node head =new Node(arr[0]);
+		head.next=new Node(arr[1]);
+		head.next.next=new Node(arr[2]);
+		head.next.next.next=new Node(arr[3]);
 		
-		
-		
+//		head =deleteTail(head);
+//		head =deleteHead(head);
+		head =deleteK(head,1);
+		print(head);		
 	}
 
 	}
