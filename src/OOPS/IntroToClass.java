@@ -1,5 +1,7 @@
 package OOPS;
 
+//Importing the PAckages
+import static OOPS.packagesExamples.message;
 public class IntroToClass {
 	
 	public static void main(String[] args) {
@@ -13,7 +15,7 @@ public class IntroToClass {
 		Student Rahul = manish;
 		Rahul.rno=33;
 		System.out.println("The roll No of rahul is :"+Rahul.rno);
-		
+		message();
 		}
 	//Class is a Named Group of Properties and Function
 	//or A template of Objects
