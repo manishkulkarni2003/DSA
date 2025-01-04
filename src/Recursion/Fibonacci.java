@@ -2,7 +2,7 @@ package Recursion;
 
 public class Fibonacci {
 	public static void main(String[] args) {
-		Fibo(4);
+		Fibo(10);
 		
 	}
 	static void Fibo(int n) {
