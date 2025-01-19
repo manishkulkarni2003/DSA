@@ -37,13 +37,21 @@ public class multiDimenArray {
 			}
 		}
 		
+//		for(int row=0;row<arr2.length;row++) {
+//			
+//			for(int col=0;col<arr2[row].length;col++) {
+//				System.out.println(arr2[row][col]+" ");
+//			}
+//		}
+//		System.out.println();
+		
+		//multiplication 
 		for(int row=0;row<arr2.length;row++) {
-			
 			for(int col=0;col<arr2[row].length;col++) {
-				System.out.println(arr2[row][col]+" ");
+				System.out.println(arr2[row][col]*arr2[row][col]+" ");
 			}
 		}
-		System.out.println();
+		
 		
 		//using enhanced for loop
 		for(int[]num:arr2) {
