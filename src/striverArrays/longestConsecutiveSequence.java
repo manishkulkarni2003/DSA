@@ -10,6 +10,7 @@ public class longestConsecutiveSequence {
 		
 		
 	}
+	//utility Functions
 	static boolean LinearSearch(int[] arr,int num) {
 		for(int i=0;i<arr.length;i++) {
 			if(arr[i]==num) {
@@ -18,12 +19,13 @@ public class longestConsecutiveSequence {
 		}
 		return false;
 	}
+	
 	static int LongestConsecBrute(int[] arr) {
 		int longest =1;
 		for(int i=0;i<arr.length;i++) {
 			int x=arr[i];
-			int count =1;
-			
+			int count =1;//1+1=2
+			//100 100+1=101==true 
 			while(LinearSearch(arr,x+1)==true) {
 				x+=1;
 				count+=1;
@@ -32,6 +34,8 @@ public class longestConsecutiveSequence {
 		}
 		return longest;
 	}
+	
+	
 	static int LongestConsecutiveSeq(int[] arr) {
 		int n=arr.length;
 		if(n==0) return 0;

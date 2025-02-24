@@ -9,11 +9,17 @@ public class reverseWordWhenWhiteSpace {
     
     public static String Reverse(String str) {
         // Correctly splitting words by space
+//    	["hello","world"]
+//    	["h","e"]
         String[] words = str.split(" ");
         StringBuilder res = new StringBuilder();
         
         // Reversing each word
         for (String word : words) {
+        	
+        	//["hello","World"]-->words arr
+        	
+//        	"olleh "
             res.append(new StringBuilder(word).reverse()).append(" "); // Maintain spaces
         }
         
