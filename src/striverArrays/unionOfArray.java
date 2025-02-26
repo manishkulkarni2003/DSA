@@ -13,7 +13,7 @@ public class unionOfArray {
 		int [] n2= {3,4,4,5,6};
 		int m=5;
 		System.out.println(findUnionBetter(n1,n2,n,m));
-		
+		//n and m are length of arr
 	}
 	static ArrayList<Integer> findUnion(int[] n1,int[] n2,int n,int m){
 		HashMap<Integer,Integer> freq=new HashMap<>();
@@ -21,7 +21,10 @@ public class unionOfArray {
 		
 		for(int i=0;i<n;i++) {
 			freq.put(n1[i],freq.getOrDefault(n1[i],0)+1);
-			
+			//here we are encountering the arr element
+			//n1[i]ex:1 ,frequency of n1[i] ex=1 if exist returns freq or default value is 0
+			//+1 is Added Because we are encountering it so if first 
+			//time it is coming then +1 or increase freq for 
 		}
 		
 		for(int i=0;i<m;i++) {
@@ -31,6 +34,7 @@ public class unionOfArray {
 		for(int it :freq.keySet()) {
 			union.add(it);
 		}
+		
 		return union;
 	}
 	static ArrayList<Integer> findUnionBetter(int[] n1,int[] n2,int n,int m){
