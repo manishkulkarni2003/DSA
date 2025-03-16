@@ -31,4 +31,28 @@ public class subArrOfSize3 {
 		}
 		return len;
 	}
+	public static int subOf3(int[] arr,int k) {
+		int n=arr.length;
+		if(n==0) {
+			return -1;
+		}
+		int len =0;
+		for(int i=0;i<n;i++) {
+			int sum=0;
+			for(int j=i;j<n-1;j++) {
+				sum+=arr[j];
+				
+				if(sum==k) {
+					len=Math.max(len,j-i+1);
+				}
+			}
+			
+			
+		}
+		return len;
+		
+		
+		
+		
+		}
 }

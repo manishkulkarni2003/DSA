@@ -4,7 +4,7 @@ public class removeVowelsFromStr {
 	public static void main(String[] args) {
 	
 		String str="Beatiful";
-		System.out.println(removeVowels(str));
+		System.out.println(removeConsonants(str));
 		
 		
 	}
@@ -39,6 +39,19 @@ public class removeVowelsFromStr {
 		}
 		
 		return res.toString();
+		
+	}
+	public static String removeConsonants(String str) {
+		StringBuilder res=new StringBuilder();
+		str=str.toLowerCase();
+		for(int i=0;i<str.length();i++) {
+			char ch=str.charAt(i);
+			if(ch=='a'||ch=='i'||ch=='o'||ch=='e'||ch=='u') {
+				res.append(ch);
+			}
+		}
+		return res.toString();
+		
 		
 	}
 	
