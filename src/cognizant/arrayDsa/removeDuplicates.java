@@ -1,6 +1,7 @@
 package cognizant.arrayDsa;
 
 
+import java.util.Arrays;
 import java.util.HashSet;
 
 public class removeDuplicates {
@@ -37,7 +38,7 @@ public class removeDuplicates {
 	}
 	public static int removeDuplicatesOptimalSolution(int[] arr) {
 		if(arr.length==0) return 0;
-		
+		Arrays.sort(arr);
 		int i=0;
 		for(int j=0;j<arr.length;j++) {
 			if(arr[i]!=arr[j]) {

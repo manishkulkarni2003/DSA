@@ -4,7 +4,7 @@ public class patternStriver {
 	
 	public static void main(String[] args) {
 		
-		pattern22(4);
+		pattern9(4);
 		
 	}
 	static void pattern1(int n) {
