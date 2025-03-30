@@ -103,6 +103,74 @@ public class DoublyLinkedList {
 		
 		
 	}
+	public static void deleteNode(Node temp) {
+		Node prev=temp.back;
+		Node front=temp.next;
+		if(front==null) {
+			prev.next=null;
+			temp.back=null;
+			return;
+		}
+		prev.next=front;
+		front.back=prev;
+		temp.next=null;
+		temp.back=null;
+		
+	}
+	//Insertion
+	public static Node insertHead(Node head,int val) {
+		Node newHead=new Node(val,head,null);
+		head.back=newHead;
+		return newHead;
+		
+	}
+	//Insertion before the Tail of the Linked list
+	public static Node insertTail(Node head,int val) {
+		if(head.next==null) {
+			return insertHead(head, val);
+		}
+		
+		Node tail=head;
+		while(tail.next!=null) {
+			tail=tail.next;
+		}
+		Node prev =tail.back;
+		Node newNode=new Node(val,tail,prev);
+		prev.next=newNode;
+		tail.back=newNode;
+		
+
+		
+		return head;
+		
+	}
+	public static Node insertBeforeKthNode(Node head,int k,int val) {
+		if(k==1) {
+			return insertHead(head, val);
+		}
+		Node temp=head;
+		int count=0;
+		while(temp!=null) {
+			count++;
+			if(count==k) {
+				break;
+				
+			}
+			temp=temp.next;
+		}
+		Node prev=temp.back;
+		Node newNode=new Node(val,temp,prev);
+		prev.next=newNode;
+		temp.back=newNode;
+		
+		return head;
+	}
+	public static void insertBeforeNode(Node node,int val) {
+		Node prev=node.back;
+		Node newNode =new Node(val,node,prev);
+		prev.next=newNode;
+		node.back=newNode;
+	}
 	
 	public static void main(String[] args) {
 		
@@ -111,7 +179,14 @@ public class DoublyLinkedList {
 		print(head);
 //		print(DeleteNode(head));
 //		print(DeleteTail(head));
-		head=deleteK(head,1);
+//		head=deleteK(head,1);
+//		print(head);
+//		deleteNode(head.next);
+//		head=insertHead(head, 10);
+		head=insertTail(head, 22);
+		print(head);
+		head =insertBeforeKthNode(head, 2, 33);
+		insertBeforeNode(head.next.next, 69);
 		print(head);
 		
 		
