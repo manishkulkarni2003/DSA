@@ -35,7 +35,7 @@ public class DoublyLinkedList {
 	}
 	
 	//printing the Node
-	private static void print(Node head) {
+	public static void print(Node head) {
 		while (head != null) {
 			System.out.println(head.data + " ");
 			head = head.next;

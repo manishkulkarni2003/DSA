@@ -22,7 +22,7 @@ public class Node {
 
 	public static class LinkedList {
 		// first Question Arr to Linked List
-		private static Node convert2Arr(int[] arr) {
+		public static Node convert2Arr(int[] arr) {
 			Node head = new Node(arr[0]);
 			Node mover = head;
 			for (int i = 1; i < arr.length; i++) {
@@ -58,7 +58,7 @@ public class Node {
 			return 0;
 		}
 
-		private static void print(Node head) {
+		public static void print(Node head) {
 			while (head != null) {
 				System.out.println(head.data + " ");
 				head = head.next;
