@@ -71,6 +71,38 @@ public class DoublyLinkedList {
 		
 		return head;
 	}
+	public static Node deleteK(Node head,int k) {
+		if(head==null) {
+			return null;
+		}
+		int count=0;
+		Node temp=head;
+		while(temp!=null) {
+			count++;
+			if(count==k) {
+				break;
+			}
+			temp=temp.next;
+		}
+		Node prev=temp.back;
+		Node front =temp.next;
+		if(prev==null && front==null) {
+			return null;
+		}else if(prev==null) {
+			return DeleteNode(head);
+		}else if(front==null) {
+			return DeleteTail(head);
+		}
+		
+		prev.next=front;
+		front.back=prev;
+		temp.next=null;
+		temp.back=null;
+		
+		return head;
+		
+		
+	}
 	
 	public static void main(String[] args) {
 		
@@ -78,7 +110,11 @@ public class DoublyLinkedList {
 		Node head=ConvertToArr(arr);
 		print(head);
 //		print(DeleteNode(head));
-		print(DeleteTail(head));
+//		print(DeleteTail(head));
+		head=deleteK(head,1);
+		print(head);
+		
+		
 	}
 	
 	
