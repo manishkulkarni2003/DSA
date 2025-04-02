@@ -1,61 +1,67 @@
 package striverArrays;
 
+import java.util.Arrays;
+
 public class findTheMissingNumber {
 	public static void main(String[] args) {
-		int [] arr= {1,2,4,5};
-		System.out.println(missingNumber(arr));
-		
-		
+	int[] arr= {1,2,4,5};
+	int n=arr.length;
+	
+	System.out.println(missingNumberOptimal2(arr,n));
+	
+	
 	}
-	//brute force
-	static int Missing(int[] nums) {
-		for(int i=0;i<=nums.length;i++) {
-			int flag =0;
-			for(int j=0;j<nums.length;j++) {
-				if(nums[j] ==i) {
-					flag =1;
+	public static int missingNumber(int[] arr) {
+		int n=arr.length;
+		for(int i=1;i<=n;i++) {
+			int flag=0;
+			for(int j=0;j<n-1;j++) {
+				if(arr[j]==i) {
+					flag=1;
 					break;
 				}
 			}
-			if(flag ==0) return i;
-			
+			if(flag==0) {
+				return i;
+			}
 		}
 		return -1;
 	}
-	//better Solution
-	static int missingNumber(int[] nums) {
-        int[] hash =new int[nums.length+1];
-        for(int i=0;i<nums.length;i++){
-            hash[nums[i]]++;
-
-        }
-        for(int i=0;i<=nums.length-1;i++){
-            if(hash[i] ==0) return i;
-        }
-        return -1;
-        
-    }
-	//optimal Solution 
-	static int missing(int[] nums) {
-		int sum =(nums.length*(nums.length+1))/2;
-        int s2=0;
-        for(int i=0;i<nums.length;i++){
-            s2=s2+nums[i];
-        }
-        int missingNumber =sum-s2;
-        return missingNumber;
+	public static int missingNumberBetter(int[] arr) {
+		int n=arr.length;
+		int [] hash=new int[n+1];
+		for(int i=0;i<n-1;i++) {
+			hash[arr[i]]++;
+		}
+		for(int i=1;i<=n;i++) {
+			if(hash[i]==0) {
+				return i;
+			}
+		}
+		return -1;
+		
 	}
-	static int OptimalMissingz(int nums[]) {
-		int xor1 =0;
-		int xor2=0;
-        for(int i=1;i<nums.length;i++){
-            xor2=xor2^nums[i];
-            xor1=xor1^(i+1);
-        }
-        xor1=xor1^nums.length;
-        return (xor1^xor2);
-
-    }
+	public static int missingNumberOptimal(int[]arr) {
+		int n=arr.length;
+		int sum=(n*(n+1))/2;
+		int s=0;
+		for(int i=0;i<n-1;i++) {
+			s+=arr[i];
+		}
+		int missingNumber=sum-s;
+		return missingNumber;
 	}
+	public static int missingNumberOptimal2(int []a, int N) {
+
+        int xor1 = 0, xor2 = 0;
+
+        for (int i = 0; i < N - 1; i++) {
+            xor2 = xor2 ^ a[i]; // XOR of array elements
+            xor1 = xor1 ^ (i + 1); //XOR up to [1...N-1]
+        }
+        xor1 = xor1 ^ N; //XOR up to [1...N]
+
+        return (xor1 ^ xor2); // the missing number
+    }
 
 }
