@@ -22,7 +22,19 @@ public class twoSum {
 		}
 		return new int[] {};
 	}
-	//better solution 
+	public static String read(int n, int []book, int target){
+        // Write your code here.
+        for(int i=0;i<n;i++){
+            for(int j=i+1;j<n;j++){
+                if(book[i]+book[j]==target){
+                    return "YES";
+                }
+            }
+        }
+        return "NO";
+    }
+	
+	//better solution //optimal for variant 2
 	static int[] twoSumBetter(int[] arr,int target) {
 		int[] ans =new int[2];
 		ans[0] = ans[1] = -1;
@@ -39,4 +51,25 @@ public class twoSum {
 		}
 		return ans;
 	}
+	//optimal solution for the variant 2
+	public static String readOptimal(int n, int []book, int target){
+        // Write your code here.
+        Arrays.sort(book);
+        int left=0;
+        int right=n-1;
+        while(left<right){
+            int sum=book[left]+book[right];
+            
+            if(sum==target){
+                return "YES";
+            }else if(sum<target){
+                left++;
+            }
+            else{
+                right--;
+            }
+        }
+        return "NO";
+    }
+	
 }
