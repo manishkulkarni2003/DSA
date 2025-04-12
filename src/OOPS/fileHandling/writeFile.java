@@ -5,8 +5,9 @@ public class writeFile {
 
 	public static void main(String[] args) {
 		try {
-			FileWriter myObj=new FileWriter("manish.txt");
+			FileWriter myObj=new FileWriter("input.txt");
 			myObj.write("Hello This is Written Using write Method of FileWrite Class");
+			myObj.write("This is the Second Line in the File");
 			myObj.close();
 			System.out.println("file Written Successfully");
 			

@@ -7,7 +7,7 @@ public class readfile {
 		 
 		 try {
 			 
-			 File myObj =new File("manish.txt");
+			 File myObj =new File("input.txt");
 			 Scanner myReader=new Scanner(myObj);
 			 while(myReader.hasNextLine()) {
 				 String data =myReader.nextLine();

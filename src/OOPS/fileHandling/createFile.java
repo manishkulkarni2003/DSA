@@ -6,7 +6,7 @@ public class createFile  {
 	public static void main(String[] args) {
 	
 		try {
-			File myObj =new File("manish.txt");
+			File myObj =new File("input.txt");
 			if(myObj.createNewFile()) {
 				System.out.println("File Created Successfully"+myObj.getName());
 			}
